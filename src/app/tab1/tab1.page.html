@@ -1,17 +1,51 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-title>
-      Tab 1
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="bg">
+  <h1 class="ion-margin-horizontal">Good morning</h1>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid class="categories">
+    <ion-row class="ion-nowrap">
+      <ion-col *ngFor="let category of categories">
+        <div>
+          <div class="image">
+            <img [src]="category.img" />
+          </div>
+          <div class="text">
+            {{ category.text }}
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <h4 class="ion-margin-horizontal">Recommended</h4>
+
+  <ion-grid class="products">
+    <ion-row class="ion-nowrap">
+      <ion-col *ngFor="let product of products" [routerLink]="['product']">
+        <div class="product">
+          <div class="product-image-container">
+            <div>
+              <img [src]="product.img">
+            </div>
+          </div>
+          <div class="product-name">
+            {{ product.text }}
+          </div>
+          <div class="product-price">
+            {{ product.price }}
+            <button class="add">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
